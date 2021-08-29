@@ -13,6 +13,8 @@
 
         if (imgLimit < min) imgLimit = min;
         if (imgLimit > max) imgLimit = max;
+        if (firstImgNumber < min - 1) firstImgNumber = min - 1;
+        if (firstImgNumber > max - 1) firstImgNumber = max - 1;
 
         for (let i = firstImgNumber; i < imgLimit; i++) {
             const comic = await fetch(`${API_URL}${i}`).then((res) => res.json())
