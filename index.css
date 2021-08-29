@@ -27,7 +27,17 @@ form {
 .card {
     display: flex;
     flex-direction: column;
+    padding: 1em;
+}
+
+.img-title {
     padding: 0.5em;
+    margin: 0;
+}
+
+.img-year {
+    padding: 0.5em;
+    margin: 0;
 }
 
 .btn {
