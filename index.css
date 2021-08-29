@@ -1,0 +1,51 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+form {
+    padding: 0.5em;
+}
+
+.app-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.container {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    flex-direction: inherit;
+}
+
+.container img {
+    border: thick double black;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em;
+}
+
+.btn {
+    border: none;
+    height: 2em;
+    width: auto;
+    border-radius: 10%;
+    color: white;
+}
+
+.primary {
+    background-color:blue;
+}
+
+.secondary {
+    background-color: green;
+}
+
+.radio {
+    background-color: grey;
+}

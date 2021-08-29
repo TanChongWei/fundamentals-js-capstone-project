@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Course Capstone Project</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1>Comics!</h1>
+    <div class="app-container">
+        <div class="container">
+            <div class="btn-container">
+                <button id="prev-btn" class="btn primary">&lt Prev</button>
+                <button id="rand-btn" class="btn secondary">Random</button>
+                <button id="nxt-btn" class="btn primary">&gt Next</button>
+                <select name='toShow' id='toShow' class="btn radio">
+                    <option value='1'>1</option>
+                    <option selected='selected' value='3'>3</option>
+                    <option value='5'>5</option>
+                </select>
+            </div>
+            <form>
+                <label for="search">Search For a specific comic:</label>
+                <input type="number" name="search" id="search" required min=1 max=2475>
+                <button type="submit" class="btn primary">Search!</button>
+            </form>
+        </div>
+        <h1 id="loading">Loading....</h1>
+        <div class="container">
+            <div class="card">
+                <h3 class="img-title"></h3>
+                <p class="img-year"></p>
+                <img class="page1 image" id="image1" src="">
+            </div>
+            <div class="card">
+                <h3 class="img-title"></h3>
+                <p class="img-year"></p>
+                <img class="page2 image" id="image2" src="">
+            </div>
+            <div class="card">
+                <h3 class="img-title"></h3>
+                <p class="img-year"></p>
+                <img class="page3 image" id="image3" src="">
+            </div>
+            <div class="card">
+                <h3 class="img-title"></h3>
+                <p class="img-year"></p>
+                <img class="page4 image" id="image4" src="">
+            </div>
+            <div class="card">
+                <h3 class="img-title"></h3>
+                <p class="img-year"></p>
+                <img class="page5 image" id="image5" src="">
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </div>
+</body>
+
+</html>
