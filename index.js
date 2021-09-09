@@ -70,12 +70,6 @@
             card.appendChild(year)
             card.appendChild(img)
             comicContainer.appendChild(card)
-            // cards[i].style.display = ""
-            // const [title, number, image] = cards[i].children
-            // title.innerHTML = comics[i].safe_title
-            // number.innerHTML = `Comic no.${comics[i].num} - year ${comics[i].year}`
-            // image.src = comics[i].img
-            // image.alt = comics[i].alt
         }
     }
 
