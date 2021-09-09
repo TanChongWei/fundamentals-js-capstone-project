@@ -45,14 +45,25 @@
 
     //sets the image src and alt attributes
     function setComicImages(comics) {
-        const cards = document.querySelectorAll('.card')
-        for (let i = 0; i < comics.length; i++) {
-            cards[i].style.removeProperty('display')
-            const [title, number, image] = cards[i].children
-            title.innerHTML = comics[i].safe_title
-            number.innerHTML = `Comic no.${comics[i].num} - year ${comics[i].year}`
-            image.src = comics[i].img
-            image.alt = comics[i].alt
+        const comicContainer = document.querySelector('#comicContainer')
+        for (let comic of comics) {
+            const card = document.createElement('div')
+            const comicTitle = document.createElement('h3')
+            comicTitle.appendChild((document.createTextNode(comic.title)))
+            const year = document.createElement('p')
+            year.appendChild((document.createTextNode(`Comic no.${comic.nun} - year ${comic.year}`)))
+            const img = document.createElement('img')
+            img.src = comic.img
+            img.alt = comic.alt
+            card.setAttribute('class', 'card')
+            comicTitle.setAttribute('class', 'img-title')
+            year.setAttribute('class', 'img-year')
+            img.setAttribute('class', 'image')
+
+            card.appendChild(comicTitle)
+            card.appendChild(year)
+            card.appendChild(img)
+            comicContainer.appendChild(card)
         }
     }
 
@@ -72,7 +83,7 @@
     nextBtn.addEventListener('click', () => {
         const displayedImages = getDisplayedImages()
         const [toShow, nextImg] = getParams()
-        displayedImages.length < toShow ? getComics(nextImg, toShow) : getComics(nextImg+toShow, toShow)
+        displayedImages.length < toShow ? getComics(nextImg, toShow) : getComics(nextImg + toShow, toShow)
     })
 
     const randBtn = document.querySelector('#rand-btn');
@@ -86,7 +97,7 @@
     prevBtn.addEventListener('click', () => {
         const displayedImages = getDisplayedImages()
         const [toShow, nextImg] = getParams()
-        displayedImages < toShow ? getComics(nextImg, toShow) : getComics(nextImg-toShow, toShow)
+        displayedImages < toShow ? getComics(nextImg, toShow) : getComics(nextImg - toShow, toShow)
     })
 
     const toShowBtn = document.querySelector('#toShow');
