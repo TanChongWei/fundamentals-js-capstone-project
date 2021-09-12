@@ -46,12 +46,13 @@
     function setComicImages(comics) {
         const comicContainer = document.querySelector('#comicContainer')
         for (let comic of comics) {
-            //Dynamically create comic card containers as required
+            // Dynamically create comic card containers as required
             const card = document.createElement('div')
             const comicTitle = document.createElement('h3')
             const year = document.createElement('p')
             const img = document.createElement('img')
 
+            // Adds comic information to respective HTML nodes
             comicTitle.appendChild((document.createTextNode(comic.title)))
             year.appendChild((document.createTextNode(`Comic no.${comic.nun} - year ${comic.year}`)))
             img.src = comic.img
@@ -63,7 +64,7 @@
             year.setAttribute('class', 'img-year')
             img.setAttribute('class', 'image')
 
-            //append children nodes to card div
+            // Append children nodes to card div
             card.appendChild(comicTitle)
             card.appendChild(year)
             card.appendChild(img)
