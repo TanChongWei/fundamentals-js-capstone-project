@@ -34,7 +34,7 @@
     function getParams() {
         const params = new URLSearchParams(window.location.search)
         const toShow = parseInt(params.get('toShow'))
-        let nextImg = parseInt(params.get('img'))
+        const nextImg = parseInt(params.get('img'))
         return [toShow, nextImg]
     }
 
@@ -43,23 +43,27 @@
         return cards.filter((card) => card.style.display !== 'none')
     }
 
-    //sets the image src and alt attributes
     function setComicImages(comics) {
         const comicContainer = document.querySelector('#comicContainer')
         for (let comic of comics) {
+            //Dynamically create comic card containers as required
             const card = document.createElement('div')
             const comicTitle = document.createElement('h3')
-            comicTitle.appendChild((document.createTextNode(comic.title)))
             const year = document.createElement('p')
-            year.appendChild((document.createTextNode(`Comic no.${comic.nun} - year ${comic.year}`)))
             const img = document.createElement('img')
+
+            comicTitle.appendChild((document.createTextNode(comic.title)))
+            year.appendChild((document.createTextNode(`Comic no.${comic.nun} - year ${comic.year}`)))
             img.src = comic.img
             img.alt = comic.alt
+
+            // Set class attributes for CSS styles
             card.setAttribute('class', 'card')
             comicTitle.setAttribute('class', 'img-title')
             year.setAttribute('class', 'img-year')
             img.setAttribute('class', 'image')
 
+            //append children nodes to card div
             card.appendChild(comicTitle)
             card.appendChild(year)
             card.appendChild(img)
@@ -71,12 +75,14 @@
     function resetImages() {
         const cards = document.querySelectorAll('.card')
         for (let card of cards) {
-            card.style.display = "none"
+            card.remove()
         }
     }
 
+    //fetches comics based on url params or 1st comic page if there are no params specified
     window.addEventListener('load', () => {
-        getComics()
+        const [toShow, nextImg] = getParams()
+        toShow && nextImg ? getComics(nextImg, toShow) : getComics()
     })
 
     const nextBtn = document.querySelector('#nxt-btn')

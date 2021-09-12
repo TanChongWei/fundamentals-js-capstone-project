@@ -20,8 +20,10 @@ form {
     flex-direction: inherit;
 }
 
-.container img {
+.container .card img {
     border: thick double chocolate;
+    height: auto;
+    width: 30em;
 }
 
 .card {
@@ -58,4 +60,14 @@ form {
 
 .radio {
     background-color: grey;
+}
+
+.loading-bar {
+    height: 10em;
+    width: 10em;
+    animation: loading 1s infinite
+}
+
+@keyframes loading {
+    to {transform: rotate(360deg)}
 }
