@@ -1,73 +1,79 @@
 body {
-    font-family: sans-serif;
-    text-align: center;
+  font-family: sans-serif;
+  text-align: center;
 }
 
 form {
-    padding: 0.5em;
+  padding: 0.5em;
 }
 
 .app-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .container {
-    display: inherit;
-    justify-content: center;
-    align-items: center;
-    flex-direction: inherit;
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+  flex-direction: inherit;
 }
 
 .container .card img {
-    border: thick double chocolate;
-    height: auto;
-    width: 30em;
+  border: thick double chocolate;
+  height: auto;
+  width: 30em;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    padding: 1em;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
 }
 
 .img-title {
-    padding: 0.5em;
-    margin: 0;
+  padding: 0.5em;
+  margin: 0;
 }
 
 .img-year {
-    padding: 0.5em;
-    margin: 0;
+  padding: 0.5em;
+  margin: 0;
 }
 
 .btn {
-    border: none;
-    height: 2em;
-    width: auto;
-    border-radius: 10%;
-    color: white;
+  border: none;
+  height: 2em;
+  width: auto;
+  border-radius: 10%;
+  color: white;
+}
+
+.disabled {
+  display: none;
 }
 
 .primary {
-    background-color:blue;
+  background-color: blue;
 }
 
 .secondary {
-    background-color: green;
+  background-color: green;
 }
 
 .radio {
-    background-color: grey;
+  background-color: grey;
 }
 
 .loading-bar {
-    height: 10em;
-    width: 10em;
-    animation: loading 1s infinite
+  height: 10em;
+  width: 10em;
+  animation: loading 1s infinite;
 }
 
 @keyframes loading {
-    to {transform: rotate(360deg)}
+  to {
+    transform: rotate(360deg);
+  }
 }

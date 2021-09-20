@@ -83,6 +83,16 @@
     }
   }
 
+  //toggles button functionality
+  function toggleButtonFunctionality() {
+    const btns = document.querySelectorAll(".btn");
+    for (let btn of btns) {
+      console.log(btn);
+      btn.toggleAttribute("disabled");
+      btn.classList.toggle("disabled");
+    }
+  }
+
   //fetches comics based on url params or 1st comic page if there are no params specified
   window.addEventListener("load", () => {
     const [toShow, nextImg] = getParams();
@@ -91,45 +101,57 @@
     toShow && nextImg ? getComics(nextImg, toShow) : getComics();
   });
 
+  //save the corresponding HTML elements into variables
   const nextBtn = document.querySelector("#nxt-btn");
+  const randBtn = document.querySelector("#rand-btn");
+  const prevBtn = document.querySelector("#prev-btn");
+  const toShowBtn = document.querySelector("#toShow");
+  const form = document.querySelector("form");
+
   nextBtn.addEventListener("click", () => {
+    toggleButtonFunctionality();
     const displayedImages = getDisplayedImages();
     const [toShow, nextImg] = getParams();
     displayedImages.length < toShow
       ? getComics(nextImg, toShow)
       : getComics(nextImg + toShow, toShow);
+    setTimeout(() => toggleButtonFunctionality(), 1000);
   });
 
-  const randBtn = document.querySelector("#rand-btn");
   randBtn.addEventListener("click", () => {
+    toggleButtonFunctionality();
     const randomImg = Math.floor(Math.random() * 2475 + 1);
     const [toShow, _] = getParams();
     getComics(randomImg, toShow);
+    setTimeout(() => toggleButtonFunctionality(), 1000);
   });
 
-  const prevBtn = document.querySelector("#prev-btn");
   prevBtn.addEventListener("click", () => {
+    toggleButtonFunctionality();
     const displayedImages = getDisplayedImages();
     const [toShow, nextImg] = getParams();
     displayedImages < toShow
       ? getComics(nextImg, toShow)
       : getComics(nextImg - toShow, toShow);
+    setTimeout(() => toggleButtonFunctionality(), 1000);
   });
 
-  const toShowBtn = document.querySelector("#toShow");
   toShowBtn.addEventListener("change", () => {
+    toggleButtonFunctionality();
     const url = new URL(window.location.href);
     url.searchParams.set("toShow", toShowBtn.value);
     window.history.pushState({}, "", url);
     const [toShow, nextImg] = getParams();
     getComics(nextImg, toShow);
+    setTimeout(() => toggleButtonFunctionality(), 1000);
   });
 
-  const form = document.querySelector("form");
   form.addEventListener("submit", (ev) => {
+    toggleButtonFunctionality();
     ev.preventDefault();
     const searchInput = parseInt(document.querySelector("#search").value);
     toShowBtn.value = 1;
     getComics(searchInput, 1);
+    setTimeout(() => toggleButtonFunctionality(), 1000);
   });
 })();
