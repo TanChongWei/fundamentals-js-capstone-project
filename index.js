@@ -86,6 +86,8 @@
   //fetches comics based on url params or 1st comic page if there are no params specified
   window.addEventListener("load", () => {
     const [toShow, nextImg] = getParams();
+    const toShowBtn = document.querySelector("#toShow");
+    toShowBtn.value = toShow || 3;
     toShow && nextImg ? getComics(nextImg, toShow) : getComics();
   });
 
