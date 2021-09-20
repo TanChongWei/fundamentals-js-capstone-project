@@ -12,3 +12,6 @@ The code will flow as such:
 3) Similarly, when the next button is clicked, the next set of comics will be fetched. The number of comics to be fetched and the current image number will be extracted from the current url parameters. 
 4) The radio button listens for a change event. On change, the number of comics to be fetched and the current image number will be extracted from the current url parameters and the subsequent comic images will be rendered on the screen or the number of comics displayed will be reduced.
 5) The search button is part of a form element that fetches the specified comic number from 1 to 2475. The corresponding url parameter will be updated. If a number less than 1 or more than 2475 is inputted, the form will not be submitted.
+
+# UML 
+![alt text](./images/UML.png)
