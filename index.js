@@ -93,6 +93,13 @@
     }
   }
 
+  //save the corresponding HTML elements into variables
+  const nextBtn = document.querySelector("#nxt-btn");
+  const randBtn = document.querySelector("#rand-btn");
+  const prevBtn = document.querySelector("#prev-btn");
+  const toShowBtn = document.querySelector("#toShow");
+  const form = document.querySelector("form");
+
   //fetches comics based on url params or 1st comic page if there are no params specified
   window.addEventListener("load", () => {
     toggleButtonFunctionality();
@@ -102,13 +109,6 @@
     toShow && nextImg ? getComics(nextImg, toShow) : getComics();
     setTimeout(() => toggleButtonFunctionality(), 1000);
   });
-
-  //save the corresponding HTML elements into variables
-  const nextBtn = document.querySelector("#nxt-btn");
-  const randBtn = document.querySelector("#rand-btn");
-  const prevBtn = document.querySelector("#prev-btn");
-  const toShowBtn = document.querySelector("#toShow");
-  const form = document.querySelector("form");
 
   nextBtn.addEventListener("click", () => {
     toggleButtonFunctionality();
